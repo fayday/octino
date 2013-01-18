@@ -1,0 +1,17 @@
+#! /bin/bash
+
+echo "name of script: $0"
+echo "$0: $1 $2 $3 $4"
+echo " "
+echo "using @ and double quotes:"
+echo "posparams are: $@"
+echo "using @ and single quotes:"
+echo 'posparams are: $@'
+echo " "
+echo "using * and double quotes:"
+echo "posparams are: $*"
+echo "using * and single quotes:"
+echo 'posparams are: $*'
+echo " "
+echo "$# arguments"
+

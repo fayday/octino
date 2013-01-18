@@ -1,0 +1,5 @@
+#! /bin/bash
+# script which make a search of defined string within files in current location
+# including subfolders
+
+grep -Ril "${1:? "undefined"}" *

@@ -1,0 +1,31 @@
+#! /bin/bash
+# ######################################################
+#
+# Return albums sorted by amount of items.
+# 
+# Number of displayed albums is defined by user as 
+# a script parameter which default value is 10.
+#
+# If -h exists then add header to script result
+# 
+# Example: highest filename [howmany] [-h]
+#
+########################################################
+
+filename=$1
+filename=${filename:?"missing."}
+
+howmany=${2:-10}
+
+header=$3
+
+
+#### Use of :=
+# howmany=$2
+#
+# sort -nr .... | head -${howmany:=10}
+
+echo -n -e ${header:+"ALBUMSARTIST\n"}
+sort -nr $filename | head -$howmany
+
+

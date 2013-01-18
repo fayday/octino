@@ -1,0 +1,16 @@
+#! /bin/bash
+
+function pushd
+{
+  if [ -n $# ]; then
+    dirname=$1
+  else
+    echo "There is no such a directory"
+    exit
+  fi
+
+  DIR_STACK="${PWD}/${dirname} ${DIR_STACK}"
+  cd $dirname
+  echo "$DIR_STACK"
+
+}

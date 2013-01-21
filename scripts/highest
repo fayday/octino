@@ -12,20 +12,15 @@
 #
 ########################################################
 
+if [ -n "$(echo $1 | grep '^-[0-9][0-9]*$')" ]; then
+  howmany=$1
+  shift
+elif [ -n "$(echo $1 | grep '^-')" ]; then
+  print 'usage: highest [-N] filename'
+  exit 1
+else
+  howmany="-10"
+fi
+
 filename=$1
-filename=${filename:?"missing."}
-
-howmany=${2:-10}
-
-header=$3
-
-
-#### Use of :=
-# howmany=$2
-#
-# sort -nr .... | head -${howmany:=10}
-
-echo -n -e ${header:+"ALBUMSARTIST\n"}
-sort -nr $filename | head -$howmany
-
-
+sort -nr $filename | head $howmany

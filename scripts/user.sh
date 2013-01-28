@@ -15,6 +15,7 @@ done
 if [ -z $exist ]; then
   echo "Selected ID doesn't exist!"
 else
-  echo "User ID $1 is ${array[$1]}."
+  username=$(grep "$1" /etc/passwd | cut -f 5 -d:)
+  echo "User ID $1 is ${array[$1]}. User name: ${username}"
   echo "There are currently ${#array[@]} user accounts on the system."
 fi

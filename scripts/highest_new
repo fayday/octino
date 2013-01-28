@@ -1,0 +1,26 @@
+#! /bin/bash
+# ######################################################
+#
+# Return albums sorted by amount of items.
+# 
+# Number of displayed albums is defined by user as 
+# a script parameter which default value is 10.
+#
+# If -h exists then add header to script result
+# 
+# Example: highest filename [howmany] [-h]
+#
+########################################################
+
+if [ -n "$(echo $1 | grep '^-[0-9][0-9]*$')" ]; then
+  howmany=$1
+  shift
+elif [ -n "$(echo $1 | grep '^-')" ]; then
+  print 'usage: highest [-N] filename'
+  exit 1
+else
+  howmany="-10"
+fi
+
+filename=$1
+sort -nr $filename | head $howmany

@@ -1,0 +1,6 @@
+#! /bin/bash
+
+#list_of_pids="$(jobs -p)"
+#kill $list_of_pids
+
+kill "$@"

@@ -1,0 +1,12 @@
+#! /bin/bash
+
+file=$1
+
+# because in for loop we want to have params 2 and 3
+shift
+
+for dest in $@; do
+  # & - run in background to parallelize processes
+  cp $file $dest &
+done
+wait # first finised wait for second process

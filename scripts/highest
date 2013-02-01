@@ -12,15 +12,12 @@
 #
 ########################################################
 
-if [ -n "$(echo $1 | grep '^-[0-9][0-9]*$')" ]; then
-  howmany=$1
-  shift
-elif [ -n "$(echo $1 | grep '^-')" ]; then
-  print 'usage: highest [-N] filename'
-  exit 1
-else
-  howmany="-10"
-fi
 
-filename=$1
-sort -nr $filename | head $howmany
+
+#if [ -n "2" ]; then
+#  sort -nr $1 | head -$2
+#else
+#  sort -nr $1
+#fi
+
+eval sort -nr \$1 ${2:+"| head -\$2"}

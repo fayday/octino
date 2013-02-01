@@ -1,7 +1,15 @@
 #! /bin/bash
 
+if [ $# -gt 3 ]; then
+  printf "To many arguments. Usage: mfmcp file dest1 dest2\n"  
+  exit
+fi
+
 file=$1
 
+if [ $2 = $3 ]; then
+  shift
+fi  
 # because in for loop we want to have params 2 and 3
 shift
 

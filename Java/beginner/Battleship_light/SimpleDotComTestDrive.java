@@ -1,13 +1,21 @@
+import java.util.ArrayList;
+
 class SimpleDotComTestDrive {
   public static void main(String[] args) {
     int numOfGuesses = 0;
     GameHelper helper = new GameHelper();
     SimpleDotCom theDotCom = new SimpleDotCom();
+    ArrayList<String> locationCells = new ArrayList<String>();
     
     int randomNum = (int) (Math.random() * 5);
 
-    int[] location = {randomNum, randomNum+1, randomNum+2};
-    theDotCom.setLocationCells(location);
+   /* String[] location = {Integer.toString(randomNum), Integer.toString(randomNum+1), 
+                        Integer.toString(randomNum+2)}; */
+    for (int i = 0; i < 3; i++) {
+      locationCells.add(Integer.toString(randomNum + i));
+    }
+
+    theDotCom.setLocationCells(locationCells);
 
     boolean isActive = true;
 

@@ -17,12 +17,17 @@ my ($value, $rate, $from, $to, %rates);
 
 print "Enter amount to transfer: ";
 $value = <STDIN>;
-print "\nEnter currency: ";
+print "Enter currency: ";
 $from = <STDIN>;
-print "\nEnter output currency: ";
+print "Enter output currency: ";
 $to = <STDIN>;
 
 chomp($value, $from, $to);
+
+if (not exists $rates{$from} || not exists $rates{$to})  {
+	die "Currency does not exist\n";
+}
+
 
 $rate = $rates{$to} / $rates{$from};
 

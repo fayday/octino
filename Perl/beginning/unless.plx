@@ -27,13 +27,12 @@ $value = <STDIN>;
 
 chomp($from,$to,$value);
 
-if ((not exists $rates{$to}) || (not exists $rates{$from})) {
+# it is the same as if ((not exists $rates{$to}) || (not exists ...
+unless ((exists $rates{$to}) || (exists $rates{$from})) {
 	die "I don't know anything about this as a currency\n";
 }
 
-#if (not exists $rates{$from}) {
-#	die "I don't know anything about $from as a currency\n";
-#};
+
 
 $rate = $rates{$to} / $rates{$from};
 print "$value $from is ",$value*$rate," $to.\n";
